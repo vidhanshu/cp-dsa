@@ -30,14 +30,14 @@
  *    Let's assume the array to be completely positive array
  *    ex: [-4,-1,0,3,10] -> [4,1,0,3,10]  so here we can observe that array is first decreasing then increaseing
  *    so we can take advantage of this fact and find a point where it is neutral i.e. common point of increasing and decreasing arrays and then can use merge sort appraoch two merge two sorted arrays
- *   
+ *
  *    Algorithm:
  *    loop over an array and find a point where abs(ar[i]) < abs(ar[i + 1])
  *    Now,
  *    from i to 0 is your first array which is sorted in increasinng order
  *    from i + 1 to n -1 your second array which is sorted in increaseing order
  *    use merge function two merge two sorted arrays also sqaure elements on the go
- *    
+ *
  *    Complexity:
  *    Time = O(3n) ~ O(n)
  *    Space = O(n)
@@ -56,21 +56,21 @@ vector<int> sortedSquares(vector<int> &ar)
     const int n = ar.size();
     vector<int> ans(n);
 
-    int p = -1;
+    int common_point = -1;
 
     // find the common point
     for (int i = 0; i < n - 1; i++)
     {
         if (abs(ar[i]) < abs(ar[i + 1]))
         {
-            p = i;
+            common_point = i;
             break;
         }
     }
 
     // this case will be there  if, array is in decreasing order of negative numbers
     // ex: -4 -3 -2 -1 0
-    if (p == -1)
+    if (common_point == -1)
     {
         for (int i = 0; i < n; i++)
         {
@@ -80,28 +80,28 @@ vector<int> sortedSquares(vector<int> &ar)
     }
 
     // simply merging two sorted arrays
-    int l = p, r = p + 1, i = 0;
+    int left_it = common_point, right_it = common_point + 1, i = 0;
 
-    while (l >= 0 && r < n)
+    while (left_it >= 0 && right_it < n)
     {
-        if (abs(ar[l]) < abs(ar[r]))
+        if (abs(ar[left_it]) < abs(ar[right_it]))
         {
-            ans[i++] = ar[l] * ar[l--];
+            ans[i++] = ar[left_it] * ar[left_it--];
         }
         else
         {
-            ans[i++] = ar[r] * ar[r++];
+            ans[i++] = ar[right_it] * ar[right_it++];
         }
     }
 
     // if elements are left over in any of the array
-    while (l >= 0)
+    while (left_it >= 0)
     {
-        ans[i++] = ar[l] * ar[l--];
+        ans[i++] = ar[left_it] * ar[left_it--];
     }
-    while (r < n)
+    while (right_it < n)
     {
-        ans[i++] = ar[r] * ar[r++];
+        ans[i++] = ar[right_it] * ar[right_it++];
     }
 
     return ans;
