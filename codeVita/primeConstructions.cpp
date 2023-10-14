@@ -44,7 +44,7 @@
  * Here q=2. Any number that when divided by 4 leaving remainder 2 must be an even number e.g., 6, 10, 14 
  * etc. Hence it can't be prime. Hence, output is "None"
  * 
- * TC: ~ O(log(10^10) * sqrt(actual_ans + q))
+ * TC: ~ O(log(10^10) * sqrt(actualAns + q))
 */
 
 #define ll long long
@@ -92,16 +92,16 @@ int main()
     }
 
     // find min idx
-    int min_idx = 0;
+    int minIdx = 0;
     int n = arr.size();
     for (int i = 0; i < n; i++)
     {
         if (arr[i] == q)
-            min_idx = i;
+            minIdx = i;
     }
 
     // swap smallest elm to end
-    swap(arr[n - 1], arr[min_idx]);
+    swap(arr[n - 1], arr[minIdx]);
 
     // find lcm of all except smallest
     ll ans = 1;
@@ -110,20 +110,20 @@ int main()
         ans = __lcm(ans, arr[i]);
     }
 
-    ll actual_ans = ans;
+    ll actualAns = ans;
     const ll power = 1e10;
-    while (actual_ans <= power)
+    while (actualAns <= power)
     {
-        if (isPrime(actual_ans + q))
+        if (isPrime(actualAns + q))
         {
-            cout << actual_ans + q;
+            cout << actualAns + q;
             return 0;
         }
         /**
          * Multiplying the lcm by 2 to keep lcm, common multiple of 
          * all distintc natural numbers in the array except smallest one i.e. q
         */
-        actual_ans = 2 * actual_ans;
+        actualAns = 2 * actualAns;
     }
     // if no such prime exists print None
     cout << "None";

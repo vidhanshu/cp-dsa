@@ -45,10 +45,10 @@
  * SC: O(1)
  */
 
-#define input_ar(ar)    \
+#define inputAr(ar)    \
     for (auto &it : ar) \
         cin >> it;
-#define output_ar(ar)   \
+#define outputAr(ar)   \
     for (auto &it : ar) \
         cout << it << " ";
 
@@ -57,9 +57,7 @@ using namespace std;
 
 bool validMountainArray(vector<int> &arr)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
+ 
     const int n = arr.size();
 
     if (n < 3)

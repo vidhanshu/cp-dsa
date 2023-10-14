@@ -25,7 +25,8 @@
 /**
  * Approach:
  *
- * 1) Bruteforce: sqaure the array sort the array - TC -> O(n.logn)
+ * 1) Bruteforce: sqaure the array sort the array
+ *    TC: O(n.logn)
  * 2) Optimized: Two pointer approach:
  *    Let's assume the array to be completely positive array
  *    ex: [-4,-1,0,3,10] -> [4,1,0,3,10]  so here we can observe that array is first decreasing then increaseing
@@ -39,8 +40,8 @@
  *    use merge function two merge two sorted arrays also sqaure elements on the go
  *
  *    Complexity:
- *    Time = O(3n) ~ O(n)
- *    Space = O(n)
+ *    TC: O(3n) ~ O(n)
+ *    SC: O(n)
  */
 
 #include <bits/stdc++.h>
@@ -56,21 +57,21 @@ vector<int> sortedSquares(vector<int> &ar)
     const int n = ar.size();
     vector<int> ans(n);
 
-    int common_point = -1;
+    int commonPoint = -1;
 
     // find the common point
     for (int i = 0; i < n - 1; i++)
     {
         if (abs(ar[i]) < abs(ar[i + 1]))
         {
-            common_point = i;
+            commonPoint = i;
             break;
         }
     }
 
     // this case will be there  if, array is in decreasing order of negative numbers
     // ex: -4 -3 -2 -1 0
-    if (common_point == -1)
+    if (commonPoint == -1)
     {
         for (int i = 0; i < n; i++)
         {
@@ -80,28 +81,28 @@ vector<int> sortedSquares(vector<int> &ar)
     }
 
     // simply merging two sorted arrays
-    int left_it = common_point, right_it = common_point + 1, i = 0;
+    int leftIt = commonPoint, rightIt = commonPoint + 1, i = 0;
 
-    while (left_it >= 0 && right_it < n)
+    while (leftIt >= 0 && rightIt < n)
     {
-        if (abs(ar[left_it]) < abs(ar[right_it]))
+        if (abs(ar[leftIt]) < abs(ar[rightIt]))
         {
-            ans[i++] = ar[left_it] * ar[left_it--];
+            ans[i++] = ar[leftIt] * ar[leftIt--];
         }
         else
         {
-            ans[i++] = ar[right_it] * ar[right_it++];
+            ans[i++] = ar[rightIt] * ar[rightIt++];
         }
     }
 
     // if elements are left over in any of the array
-    while (left_it >= 0)
+    while (leftIt >= 0)
     {
-        ans[i++] = ar[left_it] * ar[left_it--];
+        ans[i++] = ar[leftIt] * ar[leftIt--];
     }
-    while (right_it < n)
+    while (rightIt < n)
     {
-        ans[i++] = ar[right_it] * ar[right_it++];
+        ans[i++] = ar[rightIt] * ar[rightIt++];
     }
 
     return ans;

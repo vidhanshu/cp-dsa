@@ -7,16 +7,15 @@
  * Approach: (used hint #3)
  * Approach is to ignore the elements whose value is equal to val and keep filling the only those elements
  * which are not equal to val
- * 
+ *
  * i = 0
  * we will iterate over array once and for each element will check
  * if element != val then will keep the element storing in the array itself and increment i by 1
- * 
+ *
  * eventually the i will represent what will be the size of resultant array
- * 
+ *
  * Time: O(n)
  * Space: O(1)
- * Beats 100% c++ users solution timewise
  */
 
 #include <bits/stdc++.h>
@@ -24,9 +23,6 @@ using namespace std;
 
 int removeElement(vector<int> &nums, int val)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
     // not required, but just for optimization purpose
     if (val > 50)
     {

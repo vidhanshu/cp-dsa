@@ -30,11 +30,11 @@
 
 /**
  * Approach:(self thought approach)
- * Approach is to use the two pointer approach to move all the elements which are equal to val to the 
+ * Approach is to use the two pointer approach to move all the elements which are equal to val to the
  * end of the array
- * 
- * Time: O(2n) - n for counting counts of val & n for swaping all starting vals to end
- * Space: O(1)
+ *
+ * TC: O(2n) - n for counting counts of val & n for swaping all starting vals to end
+ * SC: O(1)
  */
 
 #include <bits/stdc++.h>
@@ -42,9 +42,6 @@ using namespace std;
 
 int removeElement(vector<int> &nums, int val)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
     // edge case if nums has 0 size
     if (!nums.size())
     {
