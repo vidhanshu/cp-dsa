@@ -1,17 +1,16 @@
 /**
  * @author vidhanshu borade
  * @date 11/10/23
- *
- * Approach is to skip all the occurences of the duplicate element and move to next unique element
 */
 
 /**
  * Approach:
- * Use set to do this
+ * The first element in the array is at it's correct position, now for second element we need to skip all the
+ * occurences of the first element, thus we will stop on some unique elm store it to second, and now for 
+ * finding the third elm skip all occurences of second elm and so on....
  *
  * TC: O(n)
  * SC: O(1)
- *
  */
 
 #define input_ar(ar)    \
