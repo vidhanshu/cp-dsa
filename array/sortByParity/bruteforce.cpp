@@ -28,13 +28,12 @@
  *
  * TC: O(n)
  * SC: O(n)
- * BEATS: 95.83% c++ users timewise
  */
 
-#define input_ar(ar)    \
+#define inputAr(ar)    \
     for (auto &it : ar) \
         cin >> it;
-#define output_ar(ar)   \
+#define outputAr(ar)   \
     for (auto &it : ar) \
         cout << it << " ";
 
@@ -43,19 +42,20 @@ using namespace std;
 
 vector<int> sortArrayByParity(vector<int> &nums)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
+ 
     const int n = nums.size();
     vector<int> ans(n);
     int i = 0, j = n - 1;
 
+    // iterate over an array nums
     for (auto &it : nums)
     {
+        // if it is odd, store it from the end
         if (it & 1)
         {
             ans[j--] = it;
         }
+        // if it is even, store it from the start
         else
         {
             ans[i++] = it;
@@ -69,6 +69,6 @@ int main()
     int n;
     cin >> n;
     vector<int> ar(n);
-    input_ar(ar);
-    output_ar(sortArrayByParity(ar));
+    inputAr(ar);
+    outputAr(sortArrayByParity(ar));
 }

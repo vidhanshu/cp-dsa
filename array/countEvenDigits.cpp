@@ -35,8 +35,8 @@
  * if let's say we have a number n so to get it's last digit we can mod it with 10, similarly if we want to remove the last digit
  * we can divide it by 10
  * Ex: n = 123
- * last_digit = 123 % 10 = 3
- * number_after_removing_last_digit = 123 / 10 = 12
+ * lastDigit = 123 % 10 = 3
+ * numberAfterRemovingLastDigit = 123 / 10 = 12
  *
  * Now, simply get the number of digit count in the number and check if it is even or not
  */
@@ -44,6 +44,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// computes number of digits in a number
 int getDigCount(int n)
 {
     int ct = 0;
@@ -59,6 +60,7 @@ int findNumbers(vector<int> &ar)
     int ct = 0;
     for (auto &it : ar)
     {
+        // if dig count is even, increase count
         if (!(getDigCount(it) & 1))
         {
             ct++;

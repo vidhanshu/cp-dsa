@@ -22,10 +22,10 @@
  * Approach:
  * initialize two variables :
  * count = 0 - stores the count of 1's and will reset if 0 is found on current index
- * max_till_now = 0 - to store the result i.e. max consecutive one's till now
+ * maxTillNow = 0 - to store the result i.e. max consecutive one's till now
  *
  * we will iterate over an given array and will do:
- * - if the current element is 1 then increment count by 1 and do max_till_now = max(max_till_now, count)
+ * - if the current element is 1 then increment count by 1 and do maxTillNow = max(maxTillNow, count)
  * - elif current element is 0 reset the count to 0, since streak is broken
  */
 
@@ -35,26 +35,28 @@ using namespace std;
 int findMaxConsecutiveOnes(vector<int> &ar)
 {
     int count = 0;
-    int max_till_now = 0;
+    int maxTillNow = 0;
 
     int n = ar.size();
 
     for (int i = 0; i < n; i++)
     {
         const int it = ar[i];
-
+        // if it is 1
         if (it)
         {
             count++;
-            max_till_now = max(max_till_now, count);
+            // max count till now
+            maxTillNow = max(maxTillNow, count);
         }
+        // reset count
         else
         {
             count = 0;
         }
     }
 
-    return max_till_now;
+    return maxTillNow;
 }
 int main()
 {

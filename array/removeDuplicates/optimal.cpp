@@ -13,10 +13,10 @@
  * SC: O(1)
  */
 
-#define input_ar(ar)    \
+#define inputAr(ar)    \
     for (auto &it : ar) \
         cin >> it;
-#define output_ar(ar)   \
+#define outputAr(ar)   \
     for (auto &it : ar) \
         cout << it << " ";
 
@@ -25,9 +25,6 @@ using namespace std;
 
 int removeDuplicates(vector<int> &nums)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
     int i = 0;
     int n = nums.size();
     for (int j = 0; j < n; j++)
@@ -46,7 +43,7 @@ int main()
     int n;
     cin >> n;
     vector<int> ar(n);
-    input_ar(ar);
+    inputAr(ar);
     removeDuplicates(ar);
-    output_ar(ar);
+    outputAr(ar);
 }

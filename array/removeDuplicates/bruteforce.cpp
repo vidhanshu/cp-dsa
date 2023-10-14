@@ -21,13 +21,12 @@
  * 
  * TC: O(n.logn)
  * SC: ~ O(n)
- * BEATS: 56% c++ users timewise
  */
 
-#define input_ar(ar)    \
+#define inputAr(ar)    \
     for (auto &it : ar) \
         cin >> it;
-#define output_ar(ar)   \
+#define outputAr(ar)   \
     for (auto &it : ar) \
         cout << it << " ";
 
@@ -49,6 +48,6 @@ int main()
     int n;
     cin >> n;
     vector<int> ar(n);
-    input_ar(ar);
-    output_ar(ar);
+    inputAr(ar);
+    outputAr(ar);
 }

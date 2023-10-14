@@ -42,7 +42,6 @@
  *
  * Time: O(2m+n)
  * Space: O(m)
- * Leetcode runtime: 3ms
  */
 
 #include <bits/stdc++.h>
@@ -50,36 +49,33 @@ using namespace std;
 
 void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
     vector<int> temp(m);
     for (int i = 0; i < m; i++)
         temp[i] = nums1[i];
 
-    int left_it = 0, right_it = 0, i = 0;
+    int leftIt = 0, rightIt = 0, i = 0;
 
     // merge the arrays into nums1
-    while (left_it < m && right_it < n)
+    while (leftIt < m && rightIt < n)
     {
-        if (temp[left_it] < nums2[right_it])
+        if (temp[leftIt] < nums2[rightIt])
         {
-            nums1[i++] = temp[left_it++];
+            nums1[i++] = temp[leftIt++];
         }
         else
         {
-            nums1[i++] = nums2[right_it++];
+            nums1[i++] = nums2[rightIt++];
         }
     }
     // leftover elements in the temp
-    while (left_it < m)
+    while (leftIt < m)
     {
-        nums1[i++] = temp[left_it++];
+        nums1[i++] = temp[leftIt++];
     }
     // leftover elements in the nums2
-    while (right_it < n)
+    while (rightIt < n)
     {
-        nums1[i++] = nums2[right_it++];
+        nums1[i++] = nums2[rightIt++];
     }
 }
 int main()

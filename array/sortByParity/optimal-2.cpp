@@ -15,10 +15,10 @@
  * SC: O(1)
  */
 
-#define input_ar(ar)    \
+#define inputAr(ar)    \
     for (auto &it : ar) \
         cin >> it;
-#define output_ar(ar)   \
+#define outputAr(ar)   \
     for (auto &it : ar) \
         cout << it << " ";
 
@@ -27,9 +27,7 @@ using namespace std;
 
 vector<int> sortArrayByParity(vector<int> &nums)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
+ 
     const int n = nums.size();
     int i = 0, j = n - 1;
 
@@ -54,6 +52,6 @@ int main()
     int n;
     cin >> n;
     vector<int> ar(n);
-    input_ar(ar);
-    output_ar(sortArrayByParity(ar));
+    inputAr(ar);
+    outputAr(sortArrayByParity(ar));
 }
