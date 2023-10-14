@@ -44,15 +44,11 @@
  *
  * TC: O(n)
  * SC: O(n)
- * BEATS: 100% solutions of c++ users timewise
  */
 
-#define input_ar(ar)    \
+#define inputAr(ar)    \
     for (auto &it : ar) \
         cin >> it;
-#define output_ar(ar)   \
-    for (auto &it : ar) \
-        cout << it << " ";
 #define all(v) v.begin(), v.end()
 
 #include <bits/stdc++.h>
@@ -61,10 +57,12 @@ using namespace std;
 int heightChecker(vector<int> &heights)
 {
     int ct = 0;
+    // create expected array
     vector<int> expected(heights.begin(), heights.end());
-
+    // sort expetcted array
     sort(all(expected));
 
+    // compare and incement if in wrong position
     for (int i = 0; i < heights.size(); i++)
     {
         heights[i] != expected[i] && ct++;
@@ -78,7 +76,7 @@ int main()
     int n;
     cin >> n;
     vector<int> ar(n);
-    input_ar(ar);
+    inputAr(ar);
 
     cout << heightChecker(ar);
 }

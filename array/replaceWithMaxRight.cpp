@@ -34,10 +34,10 @@
  * SC: O(1)
  */
 
-#define input_ar(ar)    \
+#define inputAr(ar)     \
     for (auto &it : ar) \
         cin >> it;
-#define output_ar(ar)   \
+#define outputAr(ar)    \
     for (auto &it : ar) \
         cout << it << " ";
 
@@ -46,23 +46,26 @@ using namespace std;
 
 vector<int> replaceElements(vector<int> &arr)
 {
-    int max_till_i = INT_MIN;
+    int maxTillI = INT_MIN;
     int n = arr.size();
 
     for (int i = n - 1; i >= 0; i--)
     {
+        // preservering current elm, since will get overriden by max / -1
         int current = arr[i];
 
-        if (max_till_i == INT_MIN)
+        // only happens when i = n - 1
+        if (maxTillI == INT_MIN)
         {
             arr[i] = -1;
         }
         else
         {
-            arr[i] = max_till_i;
+            arr[i] = maxTillI;
         }
 
-        max_till_i = max(max_till_i, current);
+        // update maxTillI
+        maxTillI = max(maxTillI, current);
     }
 
     return arr;
@@ -73,8 +76,7 @@ int main()
     int n;
     cin >> n;
     vector<int> ar(n);
-    for (auto &it : ar)
-        cin >> it;
+    inputAr(ar);
 
-    output_ar(replaceElements(ar));
+    outputAr(replaceElements(ar));
 }
